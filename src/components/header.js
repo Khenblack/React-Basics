@@ -3,15 +3,26 @@ import '../css/styles.css';
 
 class Header extends Component {
 
+    state = {
+        keywords: ''
+    }
+
     inputChangeHandler = (event) => {
-        console.log(event.target.value);
+        this.setState({
+                keywords: event.target.value
+        });
     }
 
     render() {
         return (
             <header>
                <div className='logo'>Logo</div>
-               <input type='text' onChange={event => this.inputChangeHandler(event)} />
+               <input 
+                    type='text'
+                    placeholder='keywords'
+                    value={this.state.keywords}
+                    onChange={this.inputChangeHandler} 
+                />
             </header>
         );
     }
